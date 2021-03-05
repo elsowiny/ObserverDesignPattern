@@ -9,6 +9,11 @@ package Elsowiny_Observer;
  *
  * @author elsow
  */
-public class JavaObserverElsowiny {
+public class GOOG extends SubjectStock{
+	
+	GOOG(){
+		this.stockName = "GOOG";
+		
+	}
     
 }
