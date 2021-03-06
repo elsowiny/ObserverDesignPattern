@@ -1,0 +1,1 @@
+Trader1,Trader2,Trader3,Trader5, and Trader6 are registered with the stock AAPL. Whenever the price of AAPL changes,  all these 5 traders are notified and the AAPL price is updated for each trader automatically. 

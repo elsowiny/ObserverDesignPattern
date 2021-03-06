@@ -12,11 +12,11 @@ import java.util.List;
  *
  * @author elsow
  */
-public abstract class StockTrader {
-	private List<SubjectStock> portfolio = new ArrayList<SubjectStock>();
+public abstract class StockTrader implements Observer{
+	protected List<SubjectStock> portfolio = new ArrayList<SubjectStock>();
 	// When instantiated, each Trader object will have a portfolio of stocks
     //protected SubjectStock subject;
-    public abstract void update();
+    
     private String traderName;
     
 	public String getName() {
@@ -28,8 +28,12 @@ public abstract class StockTrader {
 	}
 	
 	public void addStock(SubjectStock stock) {
-		portfolio.add(stock);
+		getPortfolio().add(stock);
 		stock.attatch(this);
+	}
+	
+	public List<SubjectStock> getPortfolio(){
+		return this.portfolio;
 	}
 	
 }

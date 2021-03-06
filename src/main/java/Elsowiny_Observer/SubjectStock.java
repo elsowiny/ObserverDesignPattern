@@ -7,15 +7,15 @@ package Elsowiny_Observer;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import java.io.*;
 /**
  *
  * @author elsow
  */
-public class SubjectStock {
+public class SubjectStock implements Subject {
     //Each stock keeps a track of it's observers
     //To be notified if the stock price changes
-    private List<StockTrader> observers = new ArrayList<StockTrader>();
+    protected List<StockTrader> observers = new ArrayList<StockTrader>();
     private int stockPrice;
     public String stockName;
     
@@ -36,13 +36,16 @@ public class SubjectStock {
         this.stockPrice = stockPrice;
         notifyAllObservers();
     }
+    
+   
+	
     public void attatch(StockTrader observer){
        observers.add(observer);
     }
     
     public void notifyAllObservers(){
         for (StockTrader observer : observers){
-        observer.update();
+        observer.update(this);
         }
     }
     
@@ -63,4 +66,29 @@ public class SubjectStock {
     					" price is updated for each trader automatically. "
     					;
     }
+    public void getReport() {
+    	try { //try to create file
+    		PrintWriter writer = new PrintWriter("Elsowiny_Sherief.txt");
+    		String report = getObservers(); //get report
+    		writer.write(report);
+    		writer.close();
+    	}
+    	//error handling	
+    	catch(IOException e) {
+    			System.out.println("Error");
+    			e.printStackTrace();
+    		}
+    	
+    }
+
+
+	@Override
+	public void removeObserver(StockTrader observer) {
+		observers.remove(observer);
+		
+	}
+
+
+	
+	
 }
