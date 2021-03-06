@@ -58,6 +58,7 @@ public class JavaObserverElsowinyDriver {
     AAPL.setStockPrice(12);
     AAPL.setStockPrice(9);
     AAPL.getReport();
+    GOOG.getReport();
     
     //Access our observers and their names
     System.out.println(AAPL.getObservers());

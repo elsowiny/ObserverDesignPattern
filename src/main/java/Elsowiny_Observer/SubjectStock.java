@@ -59,16 +59,17 @@ public class SubjectStock implements Subject {
     		traders += observers.get(i).getName() + ",";
     	}
     	return traders +" and " + lastStockTrader +
-    			" are registered with the stock " + stock + "."
-    					+ " Whenever the price of "+ stock + " changes, "
-    					+ " all these " + number_of_traders +
-    					" traders are notified and the " + stock + 
-    					" price is updated for each trader automatically. "
+    			" are registered with the stock " + stock + ". \n"
+    					+ "Whenever the price of "+ stock + " changes, \n"
+    					+ "all these " + number_of_traders + "\n" +
+    					"traders are notified and the " + stock + "\n"+
+    					"price is updated for each trader automatically.\n\n"
     					;
     }
+    
     public void getReport() {
     	try { //try to create file
-    		PrintWriter writer = new PrintWriter("Elsowiny_Sherief.txt");
+    		FileWriter writer = new FileWriter("Elsowiny_Sherief.txt", true);
     		String report = getObservers(); //get report
     		writer.write(report);
     		writer.close();
